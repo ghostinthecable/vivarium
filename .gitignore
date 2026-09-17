@@ -1,0 +1,33 @@
+# The connectomes. ~1.5GB downloaded, ~600MB built, none of it ours to ship.
+# Nothing in data/ is source: setup.sh fetches it, data.py mkdirs the folder,
+# and the two *_brain_v3.npz are adaptations of CC BY-SA material.
+data/
+
+# Belt and braces, in case anything lands outside data/.
+*.feather
+*.npz
+*.part
+
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+
+# Secrets
+.env
+*.key
+*.pem
+
+# Editors and desktop litter
+.idea/
+.vscode/
+.DS_Store
+*.swp

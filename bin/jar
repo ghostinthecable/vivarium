@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# vivarium -- launcher. Uses the project venv, and says so plainly if it isn't there.
+set -euo pipefail
+here="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+py="$here/.venv/bin/python"
+
+if [ ! -x "$py" ]; then
+  py="$(command -v python3 || true)"
+  if [ -z "$py" ]; then
+    echo "vivarium: no python3 on PATH." >&2
+    exit 1
+  fi
+  if ! "$py" -c 'import numpy, scipy, pyarrow' 2>/dev/null; then
+    cat >&2 <<'MSG'
+vivarium: dependencies are not installed and there is no .venv here.
+
+  ./setup.sh          make the venv, install deps, fetch the connectomes
+  ./setup.sh --check  see what is already in place
+
+MSG
+    exit 1
+  fi
+fi
+
+exec "$py" -c 'import sys; sys.path.insert(0,"'"$here"'"); from vivarium.cli import main; sys.exit(main())' "$@"
