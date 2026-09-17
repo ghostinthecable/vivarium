@@ -295,7 +295,7 @@ because sensory recruitment is stochastic and so is everything downstream of it.
 
 ## Licence
 
-The code is MIT — see [LICENSE](LICENSE). Copyright 2026 Dan.
+The code is MIT — see [LICENSE](LICENSE). Copyright 2026.
 
 The connectomes are not mine and carry their own terms, above: FAFB is
 CC BY-SA 4.0, MaleCNS is CC BY 4.0. Nothing in `data/` is redistributed here.
